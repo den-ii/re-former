@@ -1,3 +1,18 @@
+<!--
+<form action="/users" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="user[name]"><br><br>
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="user[email]"><br><br>
+  <label for="lname">Password:</label>
+  <input type="text" id="password" name="user[password]"><br><br>
+  <input type="submit" value="Submit">
+</form>
+-->
+
+<!--
+
 <%= form_tag("/users", method: "post") do %>
   <%= label_tag(:name, "Name:") %>
   <%= text_field_tag(:name) %>
@@ -6,4 +21,28 @@
   <%= label_tag(:password, "Password:") %>
   <%= password_field_tag(:password) %>
   <%= submit_tag("Submit") %>
+<% end %>
+-->
+
+
+<%= form_with url: users_path do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :email, 'Enter Email' %><br>
+    <%= form.text_field :email %>
+  </p>
+
+   <p>
+    <%= form.label :password %><br>
+    <%= form.text_field :password %>
+  </p>
+ 
+ 
+  <p>
+    <%= form.submit %>
+  </p>
 <% end %>
