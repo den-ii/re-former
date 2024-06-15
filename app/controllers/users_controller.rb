@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+    # puts(params)
 
     if @user.save
       redirect_to new_user_path, notice: "User created"
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-   params.require(:user).permit(:name, :email, :password)
-  end
+  # def user_params
+  #  params.require().permit(:name, :email, :password)
+  # end
 end
